@@ -13,8 +13,7 @@ jobs:
             pip install flask python-dotenv
   e2e:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-      - image: cimg/node:15.1
+      - image: circleci/python:3.7-node
     steps:
       - checkout
       - run:
@@ -23,8 +22,6 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install flask python-dotenv
-      - node/install-packages:
-          pkg-manager: yarn
       - run:
           name: Clone frontend and run e2e
           command: |

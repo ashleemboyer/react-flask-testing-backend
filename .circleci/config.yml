@@ -11,3 +11,20 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install flask python-dotenv
+  e2e:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install flask python-dotenv
+      - run:
+          name: Clone react-flask-testing-frontend
+          command: |
+            git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
+            cd react-flask-testing-frontend
+            ls

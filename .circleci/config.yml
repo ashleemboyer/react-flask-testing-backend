@@ -14,6 +14,7 @@ jobs:
   e2e:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
+      - image: cimg/node:15.1
     steps:
       - checkout
       - run:

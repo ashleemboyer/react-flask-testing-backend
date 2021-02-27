@@ -28,6 +28,9 @@ jobs:
             git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
             cd react-flask-testing-frontend
             ls
+      - run:
+          name: List things
+          command: ls
 workflows:
   version: 2
   all:

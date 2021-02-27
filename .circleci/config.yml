@@ -28,3 +28,9 @@ jobs:
             git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
             cd react-flask-testing-frontend
             ls
+workflows:
+  version: 2
+  all:
+    jobs:
+      - build
+      - e2e

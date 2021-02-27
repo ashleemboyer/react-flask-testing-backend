@@ -28,6 +28,7 @@ jobs:
             cd ../
             git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
             cd react-flask-testing-frontend
+            yarn
             yarn test:e2e
 workflows:
   version: 2

@@ -13,7 +13,7 @@ jobs:
             pip install flask python-dotenv
   e2e:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
+      - image: circleci/python:3.7-node
     steps:
       - checkout
       - run:
@@ -23,17 +23,13 @@ jobs:
             . venv/bin/activate
             pip install flask python-dotenv
       - run:
-          name: Clone react-flask-testing-frontend
+          name: Clone frontend and run e2e
           command: |
             cd ../
             git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
             cd react-flask-testing-frontend
-            ls
-      - run:
-          name: List things
-          command: |
-            cd ../
-            ls
+            yarn
+            yarn test:e2e
 workflows:
   version: 2
   all:

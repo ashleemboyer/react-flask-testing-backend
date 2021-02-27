@@ -31,7 +31,9 @@ jobs:
             ls
       - run:
           name: List things
-          command: ls
+          command: |
+            cd ../
+            ls
 workflows:
   version: 2
   all:

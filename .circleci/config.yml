@@ -23,15 +23,14 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install flask python-dotenv
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Clone frontend and run e2e
           command: |
             cd ../
             git clone git@github.com:ashleemboyer/react-flask-testing-frontend.git
             cd react-flask-testing-frontend
-            curl -o- -L https://yarnpkg.com/install.sh | bash
-            echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
-            yarn
             yarn test:e2e
 workflows:
   version: 2
